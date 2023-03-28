@@ -55,7 +55,7 @@ def cpdctl_init_config_context(username, password, url, context_name="default"):
         exit(1)
 
 def cpdctl_get_projects(context_name="default"):  
-    projects = cmd_execute(command='cpdctl', parameters=f'project list --profile {context_name}')
+    projects = cmd_execute(command='cpdctl', parameters=f'project list --profile {context_name} --limit 100')
     if 'status' in projects and projects['status'] == 'error':
         print("Got error to get all projects.")
         return []
