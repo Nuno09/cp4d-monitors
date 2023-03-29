@@ -42,6 +42,7 @@ def main():
     watsonstudio_active_jobs_overall_count = 0
  
     for project in projects:
+        print(project)
         watsonstudio_active_jobs_project_count=0
         project_total_jobs=0
         project_id=project['metadata']['guid']
@@ -56,6 +57,7 @@ def main():
         project_total_jobs = project_jobs_count
 
         for job in project_jobs:
+            print(job)
             runs=cp4d_monitor.get_job_run_info(project_id=project_id,job_id=job['metadata']['asset_id'])           
             if len(runs)==0:
                 continue
