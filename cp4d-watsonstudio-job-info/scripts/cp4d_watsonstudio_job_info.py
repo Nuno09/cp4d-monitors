@@ -62,6 +62,7 @@ def main():
             if len(runs)==0:
                 continue
             run = runs[0]
+            print(run)
 
             if is_active_job(run):
               watsonstudio_active_jobs_overall_count+=1
