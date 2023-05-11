@@ -42,6 +42,8 @@ def main():
     watsonstudio_active_jobs_overall_count = 0
  
     for project in projects:
+        print("project \n")
+        print(project)
         watsonstudio_active_jobs_project_count=0
         project_total_jobs=0
         project_id=project['metadata']['guid']
@@ -64,6 +66,11 @@ def main():
             if is_active_job(run):
               watsonstudio_active_jobs_overall_count+=1
               watsonstudio_active_jobs_project_count+=1
+            print("job: \n")
+            print(job)
+
+            print("run: \n")
+            print(run)
             if run['entity']['job_run']['state']=='Running' or run['entity']['job_run']['state']=='None':
                 duration_in_seconds=0
             else:              
