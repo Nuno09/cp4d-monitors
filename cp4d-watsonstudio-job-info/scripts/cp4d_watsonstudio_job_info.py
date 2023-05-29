@@ -42,11 +42,10 @@ def main():
     watsonstudio_active_jobs_overall_count = 0
  
     for project in projects:
-        print("project \n")
-        print(project)
         watsonstudio_active_jobs_project_count=0
         project_total_jobs=0
         project_id=project['metadata']['guid']
+        print("project: " + project_id + "\n")
         if project_id not in jobs.keys():
             continue
         project_jobs=jobs[project_id]['results']
@@ -66,11 +65,9 @@ def main():
             if is_active_job(run):
               watsonstudio_active_jobs_overall_count+=1
               watsonstudio_active_jobs_project_count+=1
-            print("job: \n")
-            print(job)
+            print("job: " + job['metadata']['asset_id'] + "\n")
 
-            print("run: \n")
-            print(run)
+            print("run: " + run + "\n")
             if run['entity']['job_run']['state']=='Running' or run['entity']['job_run']['state']=='None':
                 duration_in_seconds=0
             else:              
