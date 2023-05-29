@@ -67,12 +67,12 @@ def main():
               watsonstudio_active_jobs_project_count+=1
             print("job: " + job['metadata']['asset_id'] + "\n")
 
-            print("run: " + run + "\n")
             if run['entity']['job_run']['state']=='Running' or run['entity']['job_run']['state']=='None':
                 duration_in_seconds=0
-            else:              
+            else:     
+                print("job run: " + run['entity']['job_run']['runtime_job_id'] + "\n")         
                 duration_in_seconds=run['entity']['job_run']['duration']            
-         
+
             last_start_epoch_time = calendar.timegm(time.strptime(run['entity']['job_run']['last_state_change_timestamp'], '%Y-%m-%dT%H:%M:%SZ'))
             events.append({
                 "monitor_type":monitor_type, 
