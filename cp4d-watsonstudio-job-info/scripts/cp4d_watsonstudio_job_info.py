@@ -70,7 +70,7 @@ def main():
             if run['entity']['job_run']['state']=='Running' or run['entity']['job_run']['state']=='None':
                 duration_in_seconds=0
             else:     
-                print("job run: " + run['entity']['job_run']['runtime_job_id'] + "\n")         
+                print("job run: " + run['entity']['job_run']['job_manager_id'] + "\n")         
                 duration_in_seconds=run['entity']['job_run']['duration']            
 
             last_start_epoch_time = calendar.timegm(time.strptime(run['entity']['job_run']['last_state_change_timestamp'], '%Y-%m-%dT%H:%M:%SZ'))
