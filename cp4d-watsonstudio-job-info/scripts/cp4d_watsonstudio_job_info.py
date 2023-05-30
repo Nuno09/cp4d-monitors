@@ -1,6 +1,7 @@
 from lib import cp4d_monitor
 import time
 import calendar
+import json
 
 
 def is_active_job(run):
@@ -70,7 +71,9 @@ def main():
             if run['entity']['job_run']['state']=='Running' or run['entity']['job_run']['state']=='None':
                 duration_in_seconds=0
             else:
-                print("job run: " + run['entity']['runtime_job_id'] + "\n")         
+                print("job run: " + run['entity']['job_run']['job_ref'] + "\n")
+                print("\nJSON format = ",json.dumps(run))
+                print("\n")
                 duration_in_seconds=run['entity']['job_run']['duration']            
 
             last_start_epoch_time = calendar.timegm(time.strptime(run['entity']['job_run']['last_state_change_timestamp'], '%Y-%m-%dT%H:%M:%SZ'))
